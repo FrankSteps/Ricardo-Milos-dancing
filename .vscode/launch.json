@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Executar C++",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/milos",  // Certifique-se de que este caminho está correto!
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,  // Janela externa para a execução
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Ativar formatação automática para gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Compilar C++ com SFML",  // Nome da tarefa de compilação
+      "miDebuggerPath": "/usr/bin/gdb"  // Ajuste isso para o caminho correto, se necessário
+    }
+  ]
+}
