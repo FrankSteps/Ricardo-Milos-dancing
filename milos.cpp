@@ -14,6 +14,14 @@ Nenhuma criatura merece perdão divino, principalmente quem desenvolveu esta esc
 
 "Não tive filhos. Não passei a nenhuma criatura o legado de nossa miséria..."
 ~ Assis, Machado - 1800 e não sei o que
+
+
+Tava dando erro, essa bosta de SFML:
+ g++ -std=c++17 milos.cpp -o milos \
+          -I/usr/local/include \
+          -L/usr/local/lib \
+          -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+
 */
 
 
@@ -24,31 +32,30 @@ Nenhuma criatura merece perdão divino, principalmente quem desenvolveu esta esc
 #include <vector>
 #include <string>
 
-//declaração dos namespaces utilizadas por algumas das bibliotecas
-using namespace std;
-using namespace sf;
-
 //criação dos vetores
-vector<Texture> frames;
-vector<Sprite> sprites;
+std::vector<sf::Texture> frames;
+std::vector<sf::Sprite> sprites;
 
 //declaração de variáveis
 const int frame_count = 49;
 int current_frame = 0;
 float duration = 0.07f;
 
-
 int main() {
     //algumas configurações de dimensão
-    RenderWindow window(VideoMode(224, 224), "Ricardo Milos");
+    sf::RenderWindow window(
+        sf::VideoMode(224, 224),
+        "Ricardo Milos",
+        sf::Style::Titlebar | sf::Style::Close     
+    );
     window.setFramerateLimit(60);
 
     frames.reserve(frame_count); //evita realocação durante o push_back
     sprites.reserve(frame_count * 2); //o dobro para que o efeito ping-pong seja possível
 
     //Configuração dos sons do projeto
-    Sound sound;
-    SoundBuffer buffer;
+    sf::Sound sound;
+    sf::SoundBuffer buffer;
     if(!buffer.loadFromFile("sounds/milos.wav")){
         return -1; 
     }
@@ -56,8 +63,8 @@ int main() {
     sound.play();
 
     //Carregando o ícone da janela
-    Image icon;
-    if(!icon.loadFromFile("icone/icon.png")){
+    sf::Image icon;
+    if (!icon.loadFromFile("icone/icon.png")) {
         return -1;
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
@@ -65,25 +72,25 @@ int main() {
     //carrega as texturas direto nos vetores
     for (int i = 0; i < frame_count; i++) {
         frames.emplace_back(); 
-        if (!frames.back().loadFromFile("image/frame_" + to_string(i) + ".png")) {
+        if (!frames.back().loadFromFile("image/frame_" + std::to_string(i) + ".png")) {
             return -1; //fechar o programa automaticamente caso não encontre o arquivo 
         }
-        sprites.push_back(Sprite(frames.back()));
+        sprites.push_back(sf::Sprite(frames.back()));
     }
     
     //fazendo o processo inverso para causar o efeito ping-pong, carregando novamente as imagens, mas na ordem inversa (dobrando o valor de imagens)
     for (int i = frame_count - 1; i >= 0; i--) {
-        sprites.push_back(Sprite(frames[i]));
+        sprites.push_back(sf::Sprite(frames[i]));
     }
 
     int num_frames = sprites.size();
 
     //configurações da interações com a janela e do clock
-    Clock clock;
+    sf::Clock clock;
     while (window.isOpen()) {
-        Event event;
+        sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == Event::Closed)
+            if (event.type == sf::Event::Closed)
                 window.close();
         }
 
