@@ -43,11 +43,7 @@ float duration = 0.07f;
 
 int main() {
     //algumas configurações de dimensão
-    sf::RenderWindow window(
-        sf::VideoMode(224, 224),
-        "Ricardo Milos",
-        sf::Style::Titlebar | sf::Style::Close     
-    );
+    sf::RenderWindow window(sf::VideoMode(224, 224), "Ricardo Milos", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
 
     frames.reserve(frame_count); //evita realocação durante o push_back
