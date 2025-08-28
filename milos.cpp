@@ -53,12 +53,12 @@ int main() {
 
     ray::Image icon = ray::LoadImage("icone/icon.png"); 
     ray::SetWindowIcon(icon);
-    
-    // Responsável por tocar a música
-    ray::InitAudioDevice();
-    ray::Sound sound = ray::LoadSound("sounds/milos.wav");
-    ray::PlaySound(sound);
 
+    int current_frame = 0;
+    int direction = 1; 
+    float frame_timer = 0.0f;
+    const float frame_duration = 0.07f;
+    
     // Responsável pelas imagens (frames da animação)
     const int frame_count = 48;
     std::vector<ray::Texture> frames(frame_count);
@@ -67,10 +67,10 @@ int main() {
         frames[i] = ray::LoadTexture(("image/frame_" + std::to_string(i) + ".png").c_str());
     }
 
-    int current_frame = 0;
-    int direction = 1; 
-    float frame_timer = 0.0f;
-    const float frame_duration = 0.07f;
+    // Responsável por tocar a música
+    ray::InitAudioDevice();
+    ray::Sound sound = ray::LoadSound("sounds/milos.mp3");
+    ray::PlaySound(sound);
 
     while (!ray::WindowShouldClose()) {
         // Atualiza animação
