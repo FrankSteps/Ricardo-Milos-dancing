@@ -4,14 +4,13 @@ Desenvolvedor desta blasfêmia: Francisco Passos
 Arrependimento em: 27/08/2025
 
 Este programa foi desenvolvido para ver o quão longe um ser consegue chegar com a biblioteca Raylib no C++
-Para ver o quão distante Deus está da humanidade e o quanto a mesma se encontra perdida
+Para ver o quão distante Deus está da humanidade e o quanto a mesma se encontra perdida!
 
 Se seres humanos tivessem tal conhecimento, quais desgraças poderiam ser feitas? Quantas blasfêmias poderiam ser ditas?
-Este projeto procura responder isso...
-Nenhuma criatura merece perdão divino, principalmente quem desenvolveu esta escória. 
+Este projeto procura responder isso... Nenhuma criatura merece perdão divino, principalmente quem desenvolveu esta escória. 
 
-Me perdoe, raysan5; me perdoe, Bjarne Stroustrup; me perdoe, Santo Deus pois eu não mereço seu perdão. 
-Não sou digno de ser teu filho, oh meu pai! Não sou digno de tua herança
+Me perdoe, raysan5; me perdoe, Bjarne Stroustrup; me perdoe, Santo Deus mesmo que eu não seja digno de teu perdão. 
+Mesmo não sendo digno de ser teu filho, oh meu pai! Lhe digo em alto e bom tom: Não sou digno de tua herança, meu pai!
 
 "O apocalípse deixou de ser um medo e se tornou uma esperança..."
 ~ Desconhecido
@@ -43,6 +42,7 @@ I am not worthy to be your son, oh my father! I am not worthy of your inheritanc
 #include <iostream>
 #include <string>
 #include <vector>
+
 
 namespace ray {
     #include <raylib.h>
