@@ -6,11 +6,11 @@
 <br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;Me perdoe, raysan5; me perdoe, Bjarne Stroustrup; me perdoe, Santo Deus mesmo que eu não seja digno de teu perdão. Mesmo não sendo digno de ser teu filho, oh meu pai! Lhe digo em alto e bom tom: Não sou digno de tua herança, meu pai!
 <br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;"O apocalípse deixou de ser um medo e se tornou uma esperança"
+"O apocalípse deixou de ser um medo e se tornou uma esperança"
 <br>
 ~ Desconhecido
 <br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;"Não tive filhos. Não passei a nenhuma criatura o legado de nossa miséria"
+"Não tive filhos. Não passei a nenhuma criatura o legado de nossa miséria"
 <br>
 ~ Assis, Machado - 1800 e não sei o que
 
