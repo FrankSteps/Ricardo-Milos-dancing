@@ -54,16 +54,16 @@ int main() {
     ray::Image icon = ray::LoadImage("icone/icon.png"); 
     ray::SetWindowIcon(icon);
 
-    int current_frame = 0;
+    int current_frame = 1;
     int direction = 1; 
     float frame_timer = 0.0f;
     const float frame_duration = 0.07f;
     
     // Responsável pelas imagens (frames da animação)
-    const int frame_count = 48;
+    const int frame_count = 50;
     std::vector<ray::Texture> frames(frame_count);
 
-    for (int i = 0; i < frame_count; i++) {
+    for (int i = 1; i <= frame_count-1; i++) {
         frames[i] = ray::LoadTexture(("image/frame_" + std::to_string(i) + ".png").c_str());
     }
 
@@ -79,7 +79,7 @@ int main() {
             current_frame += direction;
 
             // inverte a direção ao chegar no fim ou no começo
-            if (current_frame >= frame_count - 1 || current_frame <= 0) {
+            if (current_frame >= frame_count - 1 || current_frame <= 1) {
                 direction *= -1;
             }
             frame_timer = 0.0f;
@@ -90,7 +90,9 @@ int main() {
         ray::EndDrawing();
     }
     // Libera memória para evitar vazamento
-    for (auto &t : frames) ray::UnloadTexture(t);
+    for (int i = 1; i < frame_count; i++){
+        ray::UnloadTexture(frames[i]);
+    }
     ray::UnloadSound(sound);
     ray::UnloadImage(icon);
     ray::CloseAudioDevice();
